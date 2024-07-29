@@ -13,11 +13,13 @@ import com.macek.scratchcard.compose.theme.ScratchCardTheme
 fun CustomButton(
     modifier: Modifier,
     text: String,
+    enabled: Boolean = true,
     onClick: () -> Unit,
 ) {
     Button(
         modifier = modifier,
         contentPadding = PaddingValues(ScratchCardTheme.spacing.l),
+        enabled = enabled,
         onClick = onClick
     ) {
         Text(
