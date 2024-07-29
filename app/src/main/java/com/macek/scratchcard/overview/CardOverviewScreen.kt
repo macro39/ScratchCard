@@ -1,18 +1,14 @@
 package com.macek.scratchcard.overview
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,12 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.macek.scratchcard.compose.components.CustomButton
+import com.macek.scratchcard.compose.components.ScratchCard
 import com.macek.scratchcard.compose.theme.ScratchCardTheme
 import com.macek.scratchcard.repository.ScratchCardState
 
@@ -60,43 +56,7 @@ private fun CardOverviewContent(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1.5f)
-                    .background(MaterialTheme.colorScheme.primary, RoundedCornerShape(ScratchCardTheme.spacing.xl))
-                    .clip(RoundedCornerShape(ScratchCardTheme.spacing.xl))
-                    .padding(ScratchCardTheme.spacing.xl),
-            ) {
-                Text(
-                    modifier = Modifier.align(Alignment.TopCenter),
-                    text = "Scratch card"
-                )
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .background(
-                            MaterialTheme.colorScheme.secondary,
-                            RoundedCornerShape(ScratchCardTheme.spacing.l)
-                        )
-                        .fillMaxWidth(0.7f)
-                        .aspectRatio(3f)
-                        .padding(ScratchCardTheme.spacing.s),
-                    contentAlignment = Alignment.Center
-                ) {
-                    val text = when (state.scratchCardState) {
-                        ScratchCardState.Activated -> "Already activated"
-                        is ScratchCardState.Scratched -> state.scratchCardState.code
-                        ScratchCardState.Unscratched -> "Scratch here"
-                    }
-                    text?.let {
-                        Text(
-                            text = it,
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
-            }
+            ScratchCard(state.scratchCardState)
             Spacer(modifier = Modifier.height(ScratchCardTheme.spacing.xl))
             Text(
                 text = state.scratchCardState.toText(),
