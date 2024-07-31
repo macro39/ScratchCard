@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.components
+package com.macek.scratchcard.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Button
@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun CustomButton(

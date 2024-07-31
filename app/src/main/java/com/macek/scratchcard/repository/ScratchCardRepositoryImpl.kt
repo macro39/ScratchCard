@@ -1,8 +1,10 @@
 package com.macek.scratchcard.repository
 
 import android.util.Log
-import com.macek.scratchcard.repository.api.CardApi
+import com.macek.scratchcard.data.remote.CardApi
+import com.macek.scratchcard.di.ApplicationScope
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -24,7 +26,7 @@ class ScratchCardRepositoryImpl(
         return scratchCardState.value
     }
 
-    override suspend fun activateCard(): ActivateCardResult = withContext(applicationScope.coroutineContext) {
+    override suspend fun activateCard(): ActivateCardResult = withContext(applicationScope.coroutineContext + NonCancellable) {
         val currentScratchCardState = scratchCardState.value
         return@withContext if (currentScratchCardState is ScratchCardState.Scratched) {
             try {

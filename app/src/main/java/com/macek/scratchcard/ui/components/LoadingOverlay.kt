@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.components
+package com.macek.scratchcard.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

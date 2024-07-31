@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.components
+package com.macek.scratchcard.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun ErrorDialog(

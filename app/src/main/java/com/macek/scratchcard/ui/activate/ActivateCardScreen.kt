@@ -1,4 +1,4 @@
-package com.macek.scratchcard.activate
+package com.macek.scratchcard.ui.activate
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,11 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.macek.scratchcard.compose.components.CustomButton
-import com.macek.scratchcard.compose.components.ErrorDialog
-import com.macek.scratchcard.compose.components.LoadingOverlay
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
 import com.macek.scratchcard.repository.ScratchCardState
+import com.macek.scratchcard.ui.components.CustomButton
+import com.macek.scratchcard.ui.components.ErrorDialog
+import com.macek.scratchcard.ui.components.LoadingOverlay
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun ActivateCardScreen() {
@@ -37,7 +37,7 @@ fun ActivateCardScreen() {
 
 @Composable
 private fun ActivateCardContent(
-    state: ActivateCardViewModel.UiState,
+    state: ActivateCardViewModel.ActivateCardUiState,
     activateCard: () -> Unit,
     dismissErrorDialog: () -> Unit,
 ) {
@@ -86,7 +86,7 @@ private fun ScratchCardState.getTitle() =
 private fun ActivateCardContentPreview() {
     ScratchCardTheme {
         ActivateCardContent(
-            state = ActivateCardViewModel.UiState(
+            state = ActivateCardViewModel.ActivateCardUiState(
                 activateCardEnabled = true,
                 isLoading = false,
             ),

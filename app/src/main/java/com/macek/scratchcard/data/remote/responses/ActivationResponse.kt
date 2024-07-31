@@ -1,4 +1,4 @@
-package com.macek.scratchcard.repository.api.model
+package com.macek.scratchcard.data.remote.responses
 
 import com.squareup.moshi.JsonClass
 

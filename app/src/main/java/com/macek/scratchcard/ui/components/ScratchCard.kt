@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.components
+package com.macek.scratchcard.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -18,8 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
 import com.macek.scratchcard.repository.ScratchCardState
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun ScratchCard(

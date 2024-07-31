@@ -1,4 +1,4 @@
-package com.macek.scratchcard.overview
+package com.macek.scratchcard.ui.overview
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
@@ -20,10 +20,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.macek.scratchcard.compose.components.CustomButton
-import com.macek.scratchcard.compose.components.ScratchCard
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
 import com.macek.scratchcard.repository.ScratchCardState
+import com.macek.scratchcard.ui.components.CustomButton
+import com.macek.scratchcard.ui.components.ScratchCard
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun CardOverviewScreen(
@@ -42,7 +42,7 @@ fun CardOverviewScreen(
 
 @Composable
 private fun CardOverviewContent(
-    state: CardOverviewViewModel.UiState,
+    state: CardOverviewViewModel.CardOverviewUiState,
     scratchCard: () -> Unit,
     activateCard: () -> Unit,
 ) {
@@ -98,7 +98,7 @@ private fun ScratchCardState.toText(): String =
 private fun CardOverviewContentPreview() {
     ScratchCardTheme {
         CardOverviewContent(
-            state = CardOverviewViewModel.UiState(ScratchCardState.Unscratched),
+            state = CardOverviewViewModel.CardOverviewUiState(ScratchCardState.Unscratched),
             scratchCard = {},
             activateCard = {},
         )

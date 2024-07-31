@@ -1,12 +1,12 @@
-package com.macek.scratchcard.compose.navigation
+package com.macek.scratchcard.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.macek.scratchcard.activate.ActivateCardScreen
-import com.macek.scratchcard.overview.CardOverviewScreen
-import com.macek.scratchcard.scratch.ScratchCardScreen
+import com.macek.scratchcard.ui.activate.ActivateCardScreen
+import com.macek.scratchcard.ui.overview.CardOverviewScreen
+import com.macek.scratchcard.ui.scratch.ScratchCardScreen
 
 @Composable
 fun ScratchCardNavHost() {

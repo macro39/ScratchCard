@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.theme
+package com.macek.scratchcard.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

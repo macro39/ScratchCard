@@ -1,4 +1,4 @@
-package com.macek.scratchcard.compose.navigation
+package com.macek.scratchcard.ui.navigation
 
 sealed class Destination(
     val route: String

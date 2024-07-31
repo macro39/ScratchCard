@@ -1,6 +1,8 @@
-package com.macek.scratchcard.repository
+package com.macek.scratchcard.di
 
-import com.macek.scratchcard.repository.api.CardApi
+import com.macek.scratchcard.data.remote.CardApi
+import com.macek.scratchcard.repository.ScratchCardRepository
+import com.macek.scratchcard.repository.ScratchCardRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

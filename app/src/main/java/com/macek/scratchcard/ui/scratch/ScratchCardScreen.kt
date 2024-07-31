@@ -1,4 +1,4 @@
-package com.macek.scratchcard.scratch
+package com.macek.scratchcard.ui.scratch
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,11 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.macek.scratchcard.compose.components.CustomButton
-import com.macek.scratchcard.compose.components.LoadingOverlay
-import com.macek.scratchcard.compose.components.ScratchCard
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
 import com.macek.scratchcard.repository.ScratchCardState
+import com.macek.scratchcard.ui.components.CustomButton
+import com.macek.scratchcard.ui.components.LoadingOverlay
+import com.macek.scratchcard.ui.components.ScratchCard
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 
 @Composable
 fun ScratchCardScreen() {
@@ -35,7 +35,7 @@ fun ScratchCardScreen() {
 
 @Composable
 private fun ScratchCardContent(
-    state: ScratchCardViewModel.UiState,
+    state: ScratchCardViewModel.ScratchCardUiState,
     scratchCard: () -> Unit,
 ) {
     Scaffold {
@@ -69,7 +69,7 @@ private fun ScratchCardContent(
 private fun ScratchCardContentPreview() {
     ScratchCardTheme {
         ScratchCardContent(
-            state = ScratchCardViewModel.UiState(
+            state = ScratchCardViewModel.ScratchCardUiState(
                 scratchCardState = ScratchCardState.Unscratched,
                 isLoading = false,
             ),

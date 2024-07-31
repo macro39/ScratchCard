@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.macek.scratchcard.compose.navigation.ScratchCardNavHost
-import com.macek.scratchcard.compose.theme.ScratchCardTheme
+import com.macek.scratchcard.ui.navigation.ScratchCardNavHost
+import com.macek.scratchcard.ui.theme.ScratchCardTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
