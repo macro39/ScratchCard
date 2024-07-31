@@ -1,5 +1,8 @@
 package com.macek.scratchcard.repository
 
+import com.macek.scratchcard.repository.api.CardApi
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -7,6 +10,8 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -22,9 +27,23 @@ object RepositoryModule {
 
     @Provides
     @Singleton
+    fun provideCardApi(): CardApi {
+        val moshi = Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
+        return Retrofit.Builder()
+            .baseUrl("https://api.o2.sk/")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(CardApi::class.java)
+    }
+
+    @Provides
+    @Singleton
     fun provideScratchCardRepository(
-        @ApplicationScope coroutineScope: CoroutineScope
-    ): ScratchCardRepository = ScratchCardRepositoryImpl(coroutineScope)
+        @ApplicationScope coroutineScope: CoroutineScope,
+        cardApi: CardApi,
+    ): ScratchCardRepository = ScratchCardRepositoryImpl(coroutineScope, cardApi)
 }
 
 @Retention(AnnotationRetention.RUNTIME)

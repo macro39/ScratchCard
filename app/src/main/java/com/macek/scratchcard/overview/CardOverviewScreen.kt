@@ -95,7 +95,7 @@ private fun ScratchCardState.toText(): String =
 
 @Composable
 @Preview
-fun CardOverviewContentPreview() {
+private fun CardOverviewContentPreview() {
     ScratchCardTheme {
         CardOverviewContent(
             state = CardOverviewViewModel.UiState(ScratchCardState.Unscratched),

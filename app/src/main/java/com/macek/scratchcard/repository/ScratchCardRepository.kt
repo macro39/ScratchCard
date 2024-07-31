@@ -6,7 +6,7 @@ interface ScratchCardRepository {
     val scratchCardState: StateFlow<ScratchCardState>
 
     suspend fun scratchCard(): ScratchCardState
-    fun activateCard()
+    suspend fun activateCard(): ActivateCardResult
 }
 
 sealed class ScratchCardState {
@@ -17,4 +17,9 @@ sealed class ScratchCardState {
     ) : ScratchCardState()
 
     data object Activated : ScratchCardState()
+}
+
+sealed class ActivateCardResult {
+    data object Success : ActivateCardResult()
+    data class Failure(val reason: String) : ActivateCardResult()
 }

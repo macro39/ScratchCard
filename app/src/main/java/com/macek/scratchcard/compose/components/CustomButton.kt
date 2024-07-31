@@ -13,7 +13,7 @@ import com.macek.scratchcard.compose.theme.ScratchCardTheme
 fun CustomButton(
     modifier: Modifier,
     text: String,
-    enabled: Boolean = true,
+    enabled: Boolean,
     onClick: () -> Unit,
 ) {
     Button(
@@ -31,11 +31,12 @@ fun CustomButton(
 
 @Composable
 @Preview
-fun CustomButtonPreview() {
+private fun CustomButtonPreview() {
     ScratchCardTheme {
         CustomButton(
             modifier = Modifier,
             text = "Custom button",
+            enabled = true,
             onClick = {},
         )
     }
