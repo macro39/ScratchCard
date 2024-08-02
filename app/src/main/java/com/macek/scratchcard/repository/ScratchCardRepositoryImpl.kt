@@ -20,10 +20,11 @@ class ScratchCardRepositoryImpl(
 
     override val scratchCardState = MutableStateFlow<ScratchCardState>(ScratchCardState.Unscratched)
 
-    override suspend fun scratchCard(): ScratchCardState {
-        delay(2000)
-        scratchCardState.value = ScratchCardState.Scratched(UUID.randomUUID().toString())
-        return scratchCardState.value
+    override suspend fun scratchCard() {
+        if (scratchCardState.value == ScratchCardState.Unscratched) {
+            delay(2000)
+            scratchCardState.value = ScratchCardState.Scratched(UUID.randomUUID().toString())
+        }
     }
 
     override suspend fun activateCard(): ActivateCardResult = withContext(applicationScope.coroutineContext + NonCancellable) {

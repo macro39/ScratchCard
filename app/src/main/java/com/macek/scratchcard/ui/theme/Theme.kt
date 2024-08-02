@@ -1,5 +1,6 @@
 package com.macek.scratchcard.ui.theme
 
+import android.content.res.Configuration
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -8,12 +9,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.platform.LocalConfiguration
 
 private val DarkColorScheme = darkColorScheme()
 
 private val LightColorScheme = lightColorScheme()
 
 val LocalSpacing = staticCompositionLocalOf { spacing }
+
+@Composable
+fun isLandscape(): Boolean {
+    return LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+}
 
 @Composable
 fun ScratchCardTheme(

@@ -19,12 +19,12 @@ class ActivateCardViewModel @Inject constructor(
     private val scratchCardRepository: ScratchCardRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(ActivateCardUiState())
-    val uiState: StateFlow<ActivateCardUiState> = _uiState
+    private val _state = MutableStateFlow(ActivateCardUiState())
+    val state: StateFlow<ActivateCardUiState> = _state
 
     fun activateCard() {
         viewModelScope.launch {
-            _uiState.update {
+            _state.update {
                 it.copy(isLoading = true)
             }
 
@@ -33,7 +33,7 @@ class ActivateCardViewModel @Inject constructor(
                 is ActivateCardResult.Failure -> result.reason
                 ActivateCardResult.Success -> null
             }
-            _uiState.update {
+            _state.update {
                 it.copy(
                     isLoading = false,
                     errorDialogText = errorDialogText
@@ -43,14 +43,14 @@ class ActivateCardViewModel @Inject constructor(
     }
 
     fun dismissErrorDialog() {
-        _uiState.update {
+        _state.update {
             it.copy(errorDialogText = null)
         }
     }
 
     init {
         scratchCardRepository.scratchCardState.onEach { scratchCardState ->
-            _uiState.update {
+            _state.update {
                 it.copy(
                     scratchCardState = scratchCardState,
                     activateCardEnabled = scratchCardState is ScratchCardState.Scratched

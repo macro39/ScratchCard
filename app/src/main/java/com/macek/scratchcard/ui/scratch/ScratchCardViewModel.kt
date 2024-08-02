@@ -18,12 +18,12 @@ class ScratchCardViewModel @Inject constructor(
     private val scratchCardRepository: ScratchCardRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(ScratchCardUiState())
-    val uiState: StateFlow<ScratchCardUiState> = _uiState
+    private val _state = MutableStateFlow(ScratchCardUiState())
+    val state: StateFlow<ScratchCardUiState> = _state
 
     init {
         scratchCardRepository.scratchCardState.onEach { scratchCardState ->
-            _uiState.update {
+            _state.update {
                 it.copy(
                     scratchCardState = scratchCardState,
                     scratchCardEnabled = scratchCardState is ScratchCardState.Unscratched
@@ -34,11 +34,11 @@ class ScratchCardViewModel @Inject constructor(
 
     fun scratchCard() {
         viewModelScope.launch {
-            _uiState.update {
+            _state.update {
                 it.copy(isLoading = true)
             }
             scratchCardRepository.scratchCard()
-            _uiState.update {
+            _state.update {
                 it.copy(isLoading = false)
             }
         }

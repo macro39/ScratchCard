@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -31,7 +33,7 @@ fun CardOverviewScreen(
     activateCard: () -> Unit,
 ) {
     val viewModel: CardOverviewViewModel = hiltViewModel()
-    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     CardOverviewContent(
         state = state,
@@ -51,6 +53,7 @@ private fun CardOverviewContent(
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(ScratchCardTheme.spacing.l)
                 .animateContentSize(),
             horizontalAlignment = Alignment.CenterHorizontally,

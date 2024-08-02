@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,7 +27,7 @@ import com.macek.scratchcard.ui.theme.ScratchCardTheme
 @Composable
 fun ScratchCardScreen() {
     val viewModel: ScratchCardViewModel = hiltViewModel()
-    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     ScratchCardContent(
         state = state,
@@ -44,6 +46,7 @@ private fun ScratchCardContent(
                 modifier = Modifier
                     .padding(it)
                     .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
                     .padding(ScratchCardTheme.spacing.l),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,

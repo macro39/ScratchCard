@@ -17,12 +17,12 @@ class CardOverviewViewModel @Inject constructor(
     scratchCardRepository: ScratchCardRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(CardOverviewUiState())
-    val uiState: StateFlow<CardOverviewUiState> = _uiState
+    private val _state = MutableStateFlow(CardOverviewUiState())
+    val state: StateFlow<CardOverviewUiState> = _state
 
     init {
         scratchCardRepository.scratchCardState.onEach { scratchCardState ->
-            _uiState.update {
+            _state.update {
                 CardOverviewUiState(
                     scratchCardState = scratchCardState,
                     scratchEnabled = scratchCardState is ScratchCardState.Unscratched,

@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.StateFlow
 interface ScratchCardRepository {
     val scratchCardState: StateFlow<ScratchCardState>
 
-    suspend fun scratchCard(): ScratchCardState
+    suspend fun scratchCard()
     suspend fun activateCard(): ActivateCardResult
 }
 
