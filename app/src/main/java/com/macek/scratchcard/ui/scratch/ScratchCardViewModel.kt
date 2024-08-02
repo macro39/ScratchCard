@@ -26,7 +26,7 @@ class ScratchCardViewModel @Inject constructor(
             _state.update {
                 it.copy(
                     scratchCardState = scratchCardState,
-                    scratchCardEnabled = scratchCardState is ScratchCardState.Unscratched
+                    scratchCardButtonEnabled = scratchCardState is ScratchCardState.Unscratched
                 )
             }
         }.launchIn(viewModelScope)
@@ -47,6 +47,6 @@ class ScratchCardViewModel @Inject constructor(
     data class ScratchCardUiState(
         val scratchCardState: ScratchCardState = ScratchCardState.Unscratched,
         val isLoading: Boolean = false,
-        val scratchCardEnabled: Boolean = false
+        val scratchCardButtonEnabled: Boolean = false
     )
 }

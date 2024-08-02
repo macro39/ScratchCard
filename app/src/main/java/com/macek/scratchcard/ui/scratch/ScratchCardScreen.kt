@@ -56,7 +56,7 @@ private fun ScratchCardContent(
                 CustomButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Scratch card",
-                    enabled = state.scratchCardEnabled,
+                    enabled = state.scratchCardButtonEnabled,
                     onClick = scratchCard
                 )
             }

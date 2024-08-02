@@ -25,8 +25,8 @@ class CardOverviewViewModel @Inject constructor(
             _state.update {
                 CardOverviewUiState(
                     scratchCardState = scratchCardState,
-                    scratchEnabled = scratchCardState is ScratchCardState.Unscratched,
-                    activateEnabled = scratchCardState is ScratchCardState.Scratched
+                    scratchCardButtonEnabled = scratchCardState is ScratchCardState.Unscratched,
+                    activateCardButtonEnabled = scratchCardState is ScratchCardState.Scratched
                 )
             }
         }.launchIn(viewModelScope)
@@ -34,7 +34,7 @@ class CardOverviewViewModel @Inject constructor(
 
     class CardOverviewUiState(
         val scratchCardState: ScratchCardState = ScratchCardState.Unscratched,
-        val scratchEnabled: Boolean = true,
-        val activateEnabled: Boolean = false,
+        val scratchCardButtonEnabled: Boolean = true,
+        val activateCardButtonEnabled: Boolean = false,
     )
 }

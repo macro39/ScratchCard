@@ -74,13 +74,13 @@ private fun CardOverviewContent(
                 CustomButton(
                     modifier = Modifier.weight(1f),
                     text = "Scratch card",
-                    enabled = state.scratchEnabled,
+                    enabled = state.scratchCardButtonEnabled,
                     onClick = scratchCard
                 )
                 CustomButton(
                     modifier = Modifier.weight(1f),
                     text = "Activate card",
-                    enabled = state.activateEnabled,
+                    enabled = state.activateCardButtonEnabled,
                     onClick = activateCard
                 )
             }

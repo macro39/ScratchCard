@@ -59,7 +59,7 @@ private fun ActivateCardContent(
                 CustomButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Activate card",
-                    enabled = state.activateCardEnabled,
+                    enabled = state.activateCardButtonEnabled,
                     onClick = activateCard
                 )
             }
@@ -90,7 +90,7 @@ private fun ActivateCardContentPreview() {
     ScratchCardTheme {
         ActivateCardContent(
             state = ActivateCardViewModel.ActivateCardUiState(
-                activateCardEnabled = true,
+                activateCardButtonEnabled = true,
                 isLoading = false,
             ),
             activateCard = {},

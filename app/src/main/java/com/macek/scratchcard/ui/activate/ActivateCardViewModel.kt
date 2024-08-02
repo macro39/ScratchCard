@@ -53,7 +53,7 @@ class ActivateCardViewModel @Inject constructor(
             _state.update {
                 it.copy(
                     scratchCardState = scratchCardState,
-                    activateCardEnabled = scratchCardState is ScratchCardState.Scratched
+                    activateCardButtonEnabled = scratchCardState is ScratchCardState.Scratched
                 )
             }
         }.launchIn(viewModelScope)
@@ -61,7 +61,7 @@ class ActivateCardViewModel @Inject constructor(
 
     data class ActivateCardUiState(
         val scratchCardState: ScratchCardState = ScratchCardState.Unscratched,
-        val activateCardEnabled: Boolean = true,
+        val activateCardButtonEnabled: Boolean = true,
         val isLoading: Boolean = false,
         val errorDialogText: String? = null,
     )
